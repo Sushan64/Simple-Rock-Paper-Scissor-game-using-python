@@ -1,27 +1,31 @@
 import random
-choices = ["Rock", "Paper", "Scissor"]
-userChoice = input("Choose one in (Rock, Paper and Scissor: ").capitalize()
-print(f"You choose {userChoice}")
-comChoice = choices[random.randrange(0,2)]
-print(f"Computer choose {comChoice}")
-
-if userChoice == comChoice:
-    print("Its Draw, Try Again")
-    
-    #when user choose Rock
-elif (userChoice == "Rock" and comChoice == "Paper"):
-    print("Computer won the game")
-elif (userChoice == "Rock" and comChoice == "Scissor"):
-    print("You Won the game")
-    
-    #when user chhoose Paper
-elif(userChoice == "Paper" and comChoice == "Rock"):
-    print("You Won the game")
-elif(userChoice == "Paper" and comChoice == "Scissor"):
-    print("Computer Wom the game")
-    
-#whem user choose Scissor
-elif(userChoice == "Scissor" and comChoice == "Rock"):
-    print("Computer Won the game")
-elif(userChoice == "Scissor" and comrChoice == "Paper"):
-    print("You Won the game")
+user_Choice = input("Choose Rock, Paper or Scissors: ").capitalize()
+computer_Choice = random.choice(["Rock", "Paper", "Scissors"])
+match computer_Choice:
+  case "Rock":
+    print("Computer Choose Rock")
+    match user_Choice:
+      case "Rock":
+        print("Its tie! Try Again")
+      case "Paper":
+        print("You Won")
+      case "Scissors":
+        print("You Lost")
+  case "Paper":
+    print("Computer Choose Paper")
+    match user_Choice:
+      case "Rock":
+        print("You Lost")
+      case "Paper":
+        print("Its tie! Try Again")
+      case "Scissors":
+        print("You Won")
+  case "Scissors":
+    print("Computer Choose Scissors")
+    match user_Choice:
+      case "Rock":
+        print("You Won")
+      case "Paper":
+        print("You Lost")
+      case "Scissors":
+        print("Its tie! Try Again")
